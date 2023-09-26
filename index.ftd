@@ -1,0 +1,104 @@
+-- import: fastn-community.github.io/presentation-doc/docs
+-- import: fastn-stack.github.io/fastn-js/utils as js-utils
+
+-- docs.home:
+created-by: fastn
+
+
+
+
+
+-- component presentation:
+children slides:
+integer $current-slide: 0
+integer length: $length(a = $presentation.slides)
+ftd.color-scheme colors: $inherited.colors
+ftd.type-data types: $inherited.types
+
+-- ftd.column:
+$on-global-key[right]$: $js-utils.clamp-increment($a = $presentation.current-slide, max = $presentation.length)
+$on-global-key[left]$: $js-utils.clamp-decrement($a = $presentation.current-slide, max = $presentation.length)
+width: fill-container
+height: fill-container
+
+-- show-ui:
+ui: $ui
+index: $LOOP.COUNTER
+current-slide: $presentation.current-slide
+for: ui in $presentation.slides
+
+-- end: ftd.column
+
+
+-- end: presentation
+
+
+
+
+
+-- component show-ui:
+ftd.ui ui:
+integer index:
+integer current-slide:
+
+-- ftd.column:
+width: fill-container
+if: { show-ui.index == show-ui.current-slide }
+
+-- show-ui.ui:
+
+-- end: ftd.column
+
+-- end: show-ui
+
+
+
+
+
+
+-- component slide-1:
+optional caption title:
+optional string subtitle:
+optional body description:
+optional ftd.image-src image:
+optional ftd.background background:
+
+-- ftd.column:
+width: fill-container
+height: fill-container
+background: $slide-1.background
+color: $inherited.colors.text
+
+-- ftd.text: $slide-1.title
+if: { slide-1.title != NULL }
+color: $inherited.colors.text-strong
+role: $inherited.types.heading-medium
+
+-- ftd.text: $slide-1.subtitle
+if: { slide-1.subtitle != NULL }
+color: $inherited.colors.text-strong
+role: $inherited.types.fine-print
+
+-- ftd.text: $slide-1.description
+if: { slide-1.description != NULL }
+color: $inherited.colors.text-strong
+role: $inherited.types.copy-regular
+
+-- ftd.image:
+src: $slide-1.image
+height.fixed.px: 400
+
+
+-- end: ftd.column
+
+
+-- end: slide-1
+
+
+
+
+
+-- integer length(a):
+ftd.ui list a:
+
+len(a)
