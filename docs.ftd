@@ -1,0 +1,199 @@
+-- import: fastn-community.github.io/presentation-doc
+
+-- import: cdc
+
+
+-- component home:
+string package-name: hero-doc
+string package-full-name: fastn-community.github.io/presentation-doc
+optional string license-url: https://github.com/fastn-community/presentation-doc/blob/home/LICENSE
+string github: https://github.com/fastn-community/presentation-doc/
+module category: fastn-community.github.io/presentation-doc
+ftd.image-src image: $assets.files.images.image.svg
+optional string preview-url:
+optional string created-by:
+optional string creator-url:
+optional body description:
+ftd.type-data types: $inherited.types
+ftd.color-scheme colors: $inherited.colors
+
+-- cdc.page:
+
+-- cdc.hero-section: $home.package-name
+creator-name: $home.created-by
+creator-url: $home.creator-url
+cta-primary-text: View more hero designs
+cta-primary-link: https://fastn.com/featured/
+cta-secondary-text: Preview
+cta-secondary-link: $home.preview-url
+github-url: $home.github
+license-url: $home.license-url
+
+
+-- cdc.code-with-preview: Hero Stack
+
+$sample-code(a = $home.package-full-name, cname = stack)
+
+-- home.category.presentation:
+
+-- home.category.slide-1: Title
+subtitle: Here goes the subtitle
+image: $assets.files.images.image.svg
+
+Lorem ipsum dolor sit amet. Rem porro sequi et sapiente sequi ex laudantium
+officia nam quia reiciendis et reiciendis rerum non praesentium iure ut laborum
+omnis. Eos voluptatem ipsam rem minima labore vel fugiat consequatur ea ratione
+nemo quo nisi quam non enim molestiae est aspernatur quam. Quo dolor deleniti
+aut laboriosam dolorem sed beatae molestiae At laborum voluptatem cum dicta
+maxime quo laborum blanditiis aut aperiam unde. Non aperiam rerum sed earum
+consectetur sit necessitatibus cumque non optio voluptatem.
+
+
+-- end: home.category.presentation
+
+-- end: cdc.code-with-preview
+
+
+
+
+
+
+
+-- cdc.overview: Properties
+
+The following properties are available for the hero components:
+
+-- cdc.component-property: `title`
+type: caption  (`required`)
+
+It's used to define the title for your hero component.
+
+-- cdc.component-property: `subtitle`
+type: body (`optional`)
+
+It's used to define the subtitle for your hero component.
+
+-- cdc.component-property: `cta-primary-text`
+type: string (`optional`)
+
+It's used to define the cta primary text for your hero component.
+
+-- cdc.component-property: `cta-primary-url`
+type: string (`optional`)
+
+It's used to define the cta primary url for your hero component.
+
+-- cdc.component-property: `cta-secondary-text`
+type: string (`optional`)
+
+It's used to define the cta secondary text for your hero component.
+
+-- cdc.component-property: `cta-secondary-url`
+type: string (`optional`)
+
+It's used to define the cta secondary url for your hero component.
+
+-- cdc.component-property: `image`
+type: ftd.image-src (`required`)
+
+It's used to define the image for your hero component.
+
+*Note: This property is not available for `without-image`.*
+
+-- end: cdc.overview
+
+-- end: cdc.page
+
+-- end: home
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component preview:
+module category: fastn-community.github.io/presentation-doc
+ftd.image-src image: $assets.files.images.image.svg
+
+
+-- preview.category.presentation:
+
+-- preview.category.slide-1: Title
+subtitle: Here goes the subtitle
+image: $assets.files.images.image.svg
+
+Lorem ipsum dolor sit amet. Rem porro sequi et sapiente sequi ex laudantium
+officia nam quia reiciendis et reiciendis rerum non praesentium iure ut laborum
+omnis. Eos voluptatem ipsam rem minima labore vel fugiat consequatur ea ratione
+nemo quo nisi quam non enim molestiae est aspernatur quam. Quo dolor deleniti
+aut laboriosam dolorem sed beatae molestiae At laborum voluptatem cum dicta
+maxime quo laborum blanditiis aut aperiam unde. Non aperiam rerum sed earum
+consectetur sit necessitatibus cumque non optio voluptatem.
+
+
+-- end: preview.category.presentation
+
+
+-- end: preview
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- string sample-code(a,cname):
+string a:
+string cname:
+
+"\;; In FASTN.ftd \\n"
++ "-- fastn.dependency: " + a + "\\n\\n"
++ "\;; In the file where you want to add the header (e.g., `index.ftd`)\\n\\n"
++ "\;; Add this at the top of the file\\n"
++ "-- import: " + a + " as hero\\n\\n"
++ "\;; Add this where you want to show the component\\n"
++ "-- hero.hero-" + cname +": Title copy goes here\\n"
++ "cta-primary-text: View more\\n"
++ "cta-primary-url: /\\n"
++ "cta-secondary-text: Preview\\n"
++ "cta-secondary-url: /\\n"
++ "image: $assets.files.image.svg\\n\\n"
++ "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt sagittis eros. Quisque quis euismod lorem. Etiam sodales ac felis id interdum. Proin viverra nulla sem, vel molestie lacus volutpat nec. Integer ut bibendum erat."
+
+
+
+-- string sample-code-without-image(a,cname):
+string a:
+string cname:
+
+"\;; In FASTN.ftd \\n"
++ "-- fastn.dependency: " + a + "\\n\\n"
++ "\;; In the file where you want to add the header (e.g., `index.ftd`)\\n\\n"
++ "\;; Add this at the top of the file\\n"
++ "-- import: " + a + " as hero\\n\\n"
++ "\;; Add this where you want to show the component\\n"
++ "-- hero.hero-" + cname +": Title copy goes here\\n"
++ "cta-primary-text: View more\\n"
++ "cta-primary-url: /\\n"
++ "cta-secondary-text: Preview\\n"
++ "cta-secondary-url: /\\n"
++ "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt sagittis eros. Quisque quis euismod lorem. Etiam sodales ac felis id interdum. Proin viverra nulla sem, vel molestie lacus volutpat nec. Integer ut bibendum erat."
